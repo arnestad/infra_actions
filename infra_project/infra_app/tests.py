@@ -12,13 +12,13 @@ class StaticPagesURLTests(TestCase):
         response = self.guest_client.get('/')
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
-        response = self.guest_client.get('/second_page/')
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        response2 = self.guest_client.get('/second/')
+        self.assertEqual(response2.status_code, HTTPStatus.OK)
 
     def test_page_shows_correct_content(self):
         """Проверка контента страниц."""
         response = self.guest_client.get('/')
         self.assertContains(response, 'У меня получилось!')
 
-        response = self.guest_client.get('/second_page/')
-        self.assertContains(response, 'А это вторая страница!')
+        response2 = self.guest_client.get('/second/')
+        self.assertContains(response2, 'А это вторая страница')
